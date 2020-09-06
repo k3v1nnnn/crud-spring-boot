@@ -13,16 +13,11 @@
 	<version>0.1</version>
 	<name>CrudSpring</name>
 	<description>A simple CRUD app</description>
-
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-mongodb</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -31,7 +26,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -49,6 +47,17 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
+		</dependency>
+		<!-- Optional, for bootstrap -->
+		<dependency>
+    		<groupId>org.webjars</groupId>
+    		<artifactId>bootstrap</artifactId>
+    		<version>4.4.1-1</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.webjars</groupId>
+    		<artifactId>webjars-locator</artifactId>
+    		<version>0.39</version>
 		</dependency>
 	</dependencies>
 
