@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"
+	th:href="@{webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}" />
+<title>Document</title>
+</head>
+<body>
+	<nav th:replace="fragments/header :: header">></nav>
+	<div class="container align-self-center">
+		<div class="row align-self-center">
+			<div class="col align-self-center">
+				<form th:object="${nuevoEmpleado}" th:action="@{/agregarEmpleado}"
+					method="post">
+					<div class="form-group">
+						<label for="nombre"> Ingrese su nombre </label> <input
+							class="form-control" name="nombre" th:value="${nombre}">
+						<label for="apellido"> Ingrese su Apellido </label> <input
+							class="form-control" name="apellido" th:value="${apellido}">
+						<label for="edad"> Ingrese su Edad </label> <input
+							class="form-control" name="edad" th:value="${edad}"> <label
+							for="sueldo"> Ingrese su Sueldo </label> <input
+							class="form-control" name="sueldo" th:value="${sueldo}">
+					</div>
+					<button type="submit" class="btn btn-primary">Agregar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
