@@ -5,23 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
 	th:href="@{webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}" />
-<title>Principal</title>
+<title>Actualizar</title>
 </head>
 <body>
 	<nav th:replace="fragments/header :: header">></nav>
-	<div class="container">
-		<ul class="nav justify-content-end">
-			<li class="nav-item p-2">
-				<a class="btn btn-success" th:href="@{/agregarEmpleado}"> Agregar Empleado</a>
-			</li>
-			<li class="nav-item p-2">
-				<a class="btn btn-warning" th:href="@{/actualizarEmpleado}"> Actualizar Empleado</a>
-			</li>
-			<li class="nav-item p-2">
-				<a class="btn btn-danger" th:href="@{/eliminarEmpleado}"> Eliminar Empleado</a>
-			</li>
-		</ul>
-	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col">
@@ -32,14 +19,18 @@
 							<th scope="col">Apellido</th>
 							<th scope="col">Edad</th>
 							<th scope="col">Sueldo</th>
+							<th scope="col">Eliminar</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="empleado:${empleados}">
-							<td th:text="${empleado.nombre}">
-							<td th:text="${empleado.apellido}">
-							<td th:text="${empleado.edad}">
-							<td th:text="${empleado.sueldo}">
+							<td th:text="${empleado.nombre}"></td>
+							<td th:text="${empleado.apellido}"></td>
+							<td th:text="${empleado.edad}"></td>
+							<td th:text="${empleado.sueldo}"></td>
+							<td>
+								<button class="btn btn-warning">Actualizar</button>
+							</td>
 						</tr>
 					</tbody>
 				</table>

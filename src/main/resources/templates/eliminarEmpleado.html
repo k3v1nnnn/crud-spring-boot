@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}"/>
+    <title>Eliminar</title>
+</head>
+<body>
+    <nav th:replace="fragments/header :: header">></nav>
+    <div class="container">
+		<div class="row">
+			<div class="col">
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">Nombre</th>
+							<th scope="col">Apellido</th>
+							<th scope="col">Edad</th>
+							<th scope="col">Sueldo</th>
+							<th scope="col">Eliminar</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="empleado:${empleados}">
+							<td th:text="${empleado.nombre}"></td>
+							<td th:text="${empleado.apellido}"></td>
+							<td th:text="${empleado.edad}"></td>
+							<td th:text="${empleado.sueldo}"></td>
+							<td>
+								<button class="btn btn-danger">Eliminar</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
