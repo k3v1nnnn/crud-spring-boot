@@ -28,7 +28,7 @@
 							<td th:text="${empleado.edad}"></td>
 							<td th:text="${empleado.sueldo}"></td>
 							<td>
-								<button class="btn btn-danger">Eliminar</button>
+								<a class="btn btn-danger" th:href="@{/eliminarEmpleado/{id}(id=${empleado.id})}">Eliminar</a>
 							</td>
 						</tr>
 					</tbody>

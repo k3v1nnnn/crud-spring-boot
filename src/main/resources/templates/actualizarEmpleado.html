@@ -8,7 +8,7 @@
 <title>Actualizar</title>
 </head>
 <body>
-	<nav th:replace="fragments/header :: header">></nav>
+	<nav th:replace="fragments/header :: header"></nav>
 	<div class="container">
 		<div class="row">
 			<div class="col">
@@ -29,7 +29,7 @@
 							<td th:text="${empleado.edad}"></td>
 							<td th:text="${empleado.sueldo}"></td>
 							<td>
-								<button class="btn btn-warning">Actualizar</button>
+								<a class="btn btn-warning" th:href="@{/actualizarEmpleado/{id}(id=${empleado.id})}">Actualizar</a>
 							</td>
 						</tr>
 					</tbody>

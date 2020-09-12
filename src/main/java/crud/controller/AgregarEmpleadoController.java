@@ -24,6 +24,6 @@ public class AgregarEmpleadoController {
 	@PostMapping("")
 	public String agregarEmpleado(@ModelAttribute("nuevoEmpleado")Empleado unEmpleado) {
 		this.baseDeDatosEmpleado.agregarEmpleado(unEmpleado);
-		return "redirect:";
+		return "redirect:/";
 	}
 }
