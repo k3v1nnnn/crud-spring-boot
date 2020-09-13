@@ -1,26 +1,24 @@
 package crud.model;
 
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
 
 
 public class Empleado {
-	@NotNull
+	@NotNull(message="El Nombre no puede ser nulo")
 	@Size(min=3,message="El Nombre tiene que ser mas largo")
 	private String nombre;
-	@NotNull
+	@NotNull(message="El Apellido no puede ser nulo")
 	@Size(min=3,message="El Apellido tiene que ser mas largo")
 	private String apellido;
-	@Positive
-	@Digits(integer=2,fraction=0,message="La edad tiene que estar entre 1 a 99")
+	@Min(value =1,message="La edad tiene que ser mayor a 1")
+	@Max(value=110,message="La edad tiene que ser menor a 99")
 	private int edad;
-	@Positive(message="El Sueldo no puede Ser 0")
-	@Digits(integer=6,fraction=0)
+	@Min(value = 100,message="El sueldo tiene que ser mayor a 1000")
 	private int sueldo;
 	private int id;
 	public Empleado(String unNombre,String unApellido,int unaEdad,int unSueldo) {
@@ -28,7 +26,6 @@ public class Empleado {
 		this.apellido=unApellido;
 		this.edad=unaEdad;
 		this.sueldo=unSueldo;
-		this.id=0;
 		}
 	
 	public Empleado() {};

@@ -28,29 +28,30 @@ public class BaseDeDatosEmpleados implements BaseDeDatos{
 	}
 	@Override
 	public void eliminarEmpleadoPorId(int unEmpleadoId) {
-		int posicion= this.posicionDelEmpleado(unEmpleadoId);
-		this.empleados.remove(posicion);
-	}
-	@Override
-	public Empleado obtenerEmpleadoPorId(int unEmpleadoId) {
-		int posicion= this.posicionDelEmpleado(unEmpleadoId);
-		return this.empleados.get(posicion);
-	}
-	@Override
-	public void actualizarEmpleado(Empleado unEmpleado) {
-		int posicion= this.posicionDelEmpleado(unEmpleado.getId());
-		this.empleados.remove(posicion);
-		this.empleados.add(posicion,unEmpleado);
-	}
-	
-	private int posicionDelEmpleado(int idDelEmpleado) {
-		int retorno=0;
-		for (int i=0;i<this.empleados.size();i++) {
-			if(this.empleados.get(i).esMiId(idDelEmpleado)) {
-				retorno= i;
+		for(Empleado empleado:this.empleados){
+			if(empleado.esMiId(unEmpleadoId)) {
+				this.empleados.remove(empleado);
 				break;
 			}
 		}
-		return retorno;
+	}
+	@Override
+	public Empleado obtenerEmpleadoPorId(int unEmpleadoId) {
+		for(Empleado empleado:this.empleados){
+			if(empleado.esMiId(unEmpleadoId)) {
+				return empleado;
+			}
+		}
+		return null;
+	}
+	@Override
+	public void actualizarEmpleado(Empleado unEmpleado) {
+		for(Empleado empleado:this.empleados){
+			if(empleado.esMiId(unEmpleado.getId())) {
+				this.empleados.remove(empleado);
+				break;
+			}
+		}
+		this.empleados.add(unEmpleado);
 	}
 }

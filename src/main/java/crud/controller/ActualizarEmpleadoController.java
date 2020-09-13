@@ -1,8 +1,11 @@
 package crud.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,8 +31,12 @@ public class ActualizarEmpleadoController {
 		modelo.addAttribute("empleadoParaActualizar", unEmpleado);
 		return "actualizandoEmpleado";
 	}
-	@PostMapping("")
-	public String empleadoActualizado(@ModelAttribute("empleadoParaActualizar") Empleado unEmpleado) {
+	@PostMapping("/{id}")
+	public String empleadoActualizado(@PathVariable("id") int empleadoId,@Valid @ModelAttribute("empleadoParaActualizar") Empleado unEmpleado,BindingResult errores) {
+		if(errores.hasErrors()) {
+			unEmpleado.setId(empleadoId);
+			return "actualizandoEmpleado";
+		}
 		this.baseDeDatos.actualizarEmpleado(unEmpleado);
 		return "redirect:/";
 	}

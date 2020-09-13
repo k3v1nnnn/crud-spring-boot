@@ -12,17 +12,21 @@
    <div class="container">
 		<div class="row">
 			<div class="col">
-				<form th:object="${empleadoParaActualizar}" th:action="@{/actualizarEmpleado}"
+				<form th:object="${empleadoParaActualizar}" th:action="@{/actualizarEmpleado/{id}(id=*{id})}"
 					method="post">
 					<div class="form-group">
 						<label for="nombre"> Ingrese su nombre </label> 
 						<input class="form-control" name="nombre" th:field="*{nombre}">
+						<div class="alert alert-danger" th:if="${(#fields.hasErrors('nombre'))}" th:errors="*{nombre}">Error nombre</div>
 						<label for="apellido"> Ingrese su Apellido </label> 
 						<input class="form-control" name="apellido" th:field="*{apellido}">
+						<div class="alert alert-danger"  th:if="${(#fields.hasErrors('apellido'))}" th:errors="*{apellido}">Error apellido</div>
 						<label for="edad"> Ingrese su Edad </label> 
-						<input class="form-control" name="edad" th:field="*{edad}"> 
+						<input class="form-control" name="edad" th:field="*{edad}">
+						<div class="alert alert-danger" th:if="${(#fields.hasErrors('edad'))}" th:errors="*{edad}">Error edad</div>
 						<label for="sueldo"> Ingrese su Sueldo </label> 
 						<input class="form-control" name="sueldo" th:field="*{sueldo}">
+						<div class="alert alert-danger" th:if="${(#fields.hasErrors('sueldo'))}" th:errors="*{sueldo}">Error sueldo</div>
 					</div>
 					<button type="submit" class="btn btn-primary">Agregar</button>
 				</form>
