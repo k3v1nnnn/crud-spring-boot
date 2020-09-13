@@ -1,9 +1,26 @@
 package crud.model;
 
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
+
+
+
 public class Empleado {
+	@NotNull
+	@Size(min=3,message="El Nombre tiene que ser mas largo")
 	private String nombre;
+	@NotNull
+	@Size(min=3,message="El Apellido tiene que ser mas largo")
 	private String apellido;
+	@Positive
+	@Digits(integer=2,fraction=0,message="La edad tiene que estar entre 1 a 99")
 	private int edad;
+	@Positive(message="El Sueldo no puede Ser 0")
+	@Digits(integer=6,fraction=0)
 	private int sueldo;
 	private int id;
 	public Empleado(String unNombre,String unApellido,int unaEdad,int unSueldo) {
@@ -14,13 +31,8 @@ public class Empleado {
 		this.id=0;
 		}
 	
-	public Empleado() {
-		this.nombre="";
-		this.apellido="";
-		this.edad=0;
-		this.sueldo=0;
-		this.id=0;
-	};
+	public Empleado() {};
+	
 	public String getNombre() {return nombre;}
 	public void setNombre(String nombre) {this.nombre = nombre;}
 	public String getApellido() {return apellido;}
