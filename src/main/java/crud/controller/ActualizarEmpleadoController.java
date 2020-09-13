@@ -25,11 +25,11 @@ public class ActualizarEmpleadoController {
 	@GetMapping("/{id}")
 	public String actualizarEmpleadoPorId(@PathVariable("id") int empleadoId,Model modelo) {
 		Empleado unEmpleado = this.baseDeDatos.obtenerEmpleadoPorId(empleadoId);
-		modelo.addAttribute("actualizarEmpleado", unEmpleado);
+		modelo.addAttribute("empleadoParaActualizar", unEmpleado);
 		return "actualizandoEmpleado";
 	}
 	@PostMapping("")
-	public String empleadoActualizado(@ModelAttribute("actualizarEmpleado") Empleado unEmpleado) {
+	public String empleadoActualizado(@ModelAttribute("empleadoParaActualizar") Empleado unEmpleado) {
 		this.baseDeDatos.actualizarEmpleado(unEmpleado);
 		return "redirect:/";
 	}
