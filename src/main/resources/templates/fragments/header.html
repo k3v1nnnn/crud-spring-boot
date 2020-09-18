@@ -10,5 +10,13 @@
     <nav class="navbar navbar-dark bg-dark" th:fragment="header">
 		<a class="navbar-brand" th:href="@{/}">CRUD</a>
 	</nav>
+	<nav class="navbar navbar-dark bg-dark" th:fragment="header-index">
+		<a class="navbar-brand" th:href="@{/}">CRUD</a>
+		<ul class="nav navbar-nav">
+			<li>
+				<a class="btn btn-primary" th:href="@{/iniciarSesion}"> Iniciar Sesion</a>
+			</li>
+		</ul>
+	</nav>
 </body>
 </html>
