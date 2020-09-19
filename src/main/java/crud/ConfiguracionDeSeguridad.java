@@ -23,13 +23,13 @@ public class ConfiguracionDeSeguridad extends WebSecurityConfigurerAdapter{
 			.defaultSuccessUrl("/").permitAll()
             .and()
             .logout()
-            .logoutUrl("/cerrarSesion") 
+            .logoutUrl("/cerrarSesion").permitAll()
             .logoutSuccessUrl("/").permitAll();
     }
 	@Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication()
-		.withUser("admin").password("admin").roles("ADMIN");
+		.withUser("admin").password("{noop}1234").roles("ADMIN");
     }
 	@Override
     public void configure(WebSecurity web) throws Exception {

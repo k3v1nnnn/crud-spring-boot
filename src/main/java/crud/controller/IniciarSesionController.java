@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/iniciarSesion")
 public class IniciarSesionController {
-	@GetMapping("")
+	@GetMapping
 	public String iniciarSesion() {
 		return "iniciarSesion";
 	}
