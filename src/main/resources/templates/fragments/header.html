@@ -15,9 +15,14 @@
 	</nav>
 	<nav class="navbar navbar-dark bg-dark" th:fragment="header-index">
 		<a class="navbar-brand" th:href="@{/}">CRUD</a>
-		<ul class="nav navbar-nav">
-			<li>
+		<ul class="nav">
+			<li class="nav-item p-2" th:unless="${#authorization.expression('isAuthenticated()')}">
 				<a class="btn btn-primary" th:href="@{/iniciarSesion}"> Iniciar Sesion</a>
+			</li>
+			<li class="nav-item p-2" th:if="${#authorization.expression('isAuthenticated()')}">
+				<form th:action="@{/cerrarSesion}" method="post">
+				<button type="submit" class="btn btn-primary">Cerrar Sesion</button>
+				</form>
 			</li>
 		</ul>
 	</nav>

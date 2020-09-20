@@ -11,7 +11,7 @@
 </head>
 <body>
 	<nav th:replace="fragments/header :: header-index">></nav>
-	<div class="container">
+	<div class="container" sec:authorize="hasRole('ADMIN')">
 		<ul class="nav justify-content-end">
 			<li class="nav-item p-2">
 				<a class="btn btn-success" th:href="@{/agregarEmpleado}"> Agregar Empleado</a>
