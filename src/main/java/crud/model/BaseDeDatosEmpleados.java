@@ -13,8 +13,8 @@ public class BaseDeDatosEmpleados implements BaseDeDatos{
 	public BaseDeDatosEmpleados() {
 		this.identificacionParaEmpleados=0;
 		this.empleados=new ArrayList<>();
-		this.agregarEmpleado(new Empleado("Pedro","Picapiedra",28,200));
-		this.agregarEmpleado(new Empleado("Pablo","Marmol",24,120));
+		this.agregarEmpleado(new Empleado("Rick","Sanchez",70,20000));
+		this.agregarEmpleado(new Empleado("Morty","Smith",14,120));
 	}
 	@Override
 	public List<Empleado> todosLosEmpleados(){
